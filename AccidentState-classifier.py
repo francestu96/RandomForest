@@ -12,11 +12,6 @@ dataset = pd.read_csv('US_Accidents_May19.csv', usecols=features)
 
 dataset = utils.setUpUSAccidentDataset(features, dataset.copy())
 
-# utils.setUpUSAccident(features, dataset)
-# DATA ANALYSIS #######################
-# graph = utils.top_accident_by_state(dataset) #
-#######################################
-
 train, test = train_test_split(dataset, test_size=0.2)
 
 # DECISION TREE #######################################################
@@ -31,6 +26,3 @@ randomForest = rf.RandomForest(train, target, 100)
 print("[Random Forest] Accuracy = " + str(randomForest.getAccuracy(test)))
 randomForest.printForest()
 ##########################################################################
-
-
-# graph.show()
