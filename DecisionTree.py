@@ -9,7 +9,6 @@ class DecisionTree (Thread):
         self.features = features
         self.dataset = dataset
         self.features_idxs = features_idxs
-        self.start()
 
     class Leaf:
         def __init__(self, decisionTree, dataset):

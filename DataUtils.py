@@ -5,7 +5,6 @@ import seaborn as sns
 import pandas as pd
 
 def setUpWineDataset(dataset):
-    dataset = dataset.sample(10000)
     dataset.drop_duplicates('description', inplace=True)
     dataset.drop("description", axis=1, inplace=True)
     dataset = dataset[pd.notnull(dataset.price)]
@@ -16,4 +15,5 @@ def setUpWineDataset(dataset):
     dataset.loc['variety'] = dataset['variety'].replace(['Garnacha'], 'Grenache')
     dataset.loc['variety'] = dataset['variety'].replace(['Pinot Nero'], 'Pinot Noir')
     dataset.loc['variety'] = dataset['variety'].replace(['Alvarinho'], 'Albarino')
+    dataset = dataset.sample(10000)
     return dataset
